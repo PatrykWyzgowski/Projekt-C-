@@ -1,0 +1,12 @@
+Autor: Patryk Wy¿gowski
+
+Moim pomys³em na projekt jest stworzenie aplikacji w APS.NET, która to bêdzie narzêdziem dla muzyków/gitarzystów
+(to mog¹ byæ dwa tryby, bo schemat akordu na pianinie i na gitarze ró¿ni siê).
+Zawarte w niej feature'y to m.in.:
+1. Transpozycja sekwencji akordów na wybran¹ tonacjê.
+2. Transpozycja sekwencji akordów o dany interwa³.
+3. Reharmonizacja ze skali durowej na paraleln¹ molow¹.
+*4.Rozwa¿am mo¿liwoœæ wprowadzenie rozpoznawania stopnia danego akordu w skali.
+
+W pewnej mierze bêdzie to przypominaæ apkê desktopow¹ Oktawiusz, jednak moja wersja bêdzie webowa
+oraz ciut bardziej rozbudowana.
