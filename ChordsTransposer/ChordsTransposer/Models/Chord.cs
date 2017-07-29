@@ -1,18 +1,16 @@
-﻿using System;
+﻿using ChordsTransposer.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
 namespace ChordsTransposer.Models
 {
-    internal class Chord
+    public class Chord
     {
         private Note chordName { get; set; }
         private bool chordCharacter { get; set; }
+        //private PossibleNotesInitialiser initialiser = new PossibleNotesInitialiser();
 
-    public Chord(Note chordName)
+        public Chord(Note chordName)
     {
-        this.chordName = chordName;
+            this.chordName = chordName;
             chordCharacter = true;
     }
     
@@ -21,5 +19,22 @@ namespace ChordsTransposer.Models
             this.chordName = chordName;
             this.chordCharacter = chordCharacter;
         }
-}
+
+    public void TransposeBySemitones(int semitones)
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                if (PossibleNotesInitialiser.possibleNotes[i] ==chordName)
+                {
+                    i+=semitones;
+                    chordName = PossibleNotesInitialiser.possibleNotes[i];
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+    }
 }

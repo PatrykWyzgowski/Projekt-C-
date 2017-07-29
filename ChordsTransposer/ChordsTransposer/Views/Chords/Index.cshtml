@@ -1,0 +1,7 @@
+﻿@model ChordsTransposer.Models.ChordList
+@using (Html.BeginForm())
+{
+@Html.TextBoxFor(model => model.userChords)
+
+<input type="submit" value="Run" />
+}

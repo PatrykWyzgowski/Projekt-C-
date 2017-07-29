@@ -9,8 +9,15 @@ namespace ChordsTransposer.Controllers
 {
     public class ChordsController : Controller
     {
-        // GET: Chords
+              // GET: Chords
         public ActionResult Index()
+        {
+                     
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult Index(ChordList model)
         {
             return View();
         }
