@@ -17,9 +17,11 @@ namespace ChordsTransposer.Controllers
         }
         
         [HttpPost]
-        public ActionResult Index(ChordList model)
+        public ActionResult Test()
         {
-            return View();
+            string userChords = "";
+           // ChordList model = new ChordList();
+            return View(userChords);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace ChordsTransposer.Models
         public ChordList(string userChords)
         {
             foreach (string chord in userChords.Split
-                (new char[] {' ' }, StringSplitOptions.RemoveEmptyEntries))
+                (new char[] {' ','m' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 chordsInserted.Add(new Chord(new Note(chord)));
             }
