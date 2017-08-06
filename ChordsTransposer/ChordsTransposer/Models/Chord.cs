@@ -5,16 +5,16 @@ namespace ChordsTransposer.Models
     public class Chord
     {
         private Note chordName { get; set; }
-        private bool chordCharacter { get; set; }
+        private int chordCharacter { get; set; }
         //private PossibleNotesInitialiser initialiser = new PossibleNotesInitialiser();
 
         public Chord(Note chordName)
     {
             this.chordName = chordName;
-            chordCharacter = true;
+            chordCharacter = 0;
     }
     
-    public Chord(Note chordName,bool chordCharacter)
+    public Chord(Note chordName,int chordCharacter)
         {
             this.chordName = chordName;
             this.chordCharacter = chordCharacter;

@@ -1,8 +1,4 @@
 ﻿using ChordsTransposer.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ChordsTransposer.Controllers
@@ -16,12 +12,19 @@ namespace ChordsTransposer.Controllers
             return View();
         }
         
-        [HttpPost]
         public ActionResult Test()
+        { 
+        
+            ChordList model = new ChordList("");
+            
+            return View(model.userChords);
+        }
+
+        [HttpPost]
+        public ActionResult TestResult(ChordList model)
         {
-            string userChords = "";
-           // ChordList model = new ChordList();
-            return View(userChords);
+            //string test = model.userChords;
+            return Content(model.userChords);
         }
     }
 }
