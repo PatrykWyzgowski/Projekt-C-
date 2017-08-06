@@ -39,5 +39,19 @@ namespace ChordsTransposer.Models
                 }
             }
         }
+
+        public void SwapMajorMinor(Chord chord)
+        {
+            if (chordCharacter == "")
+            {
+                chordCharacter = "m";
+                chord.TransposeBySemitones(-3);
+            }
+            else if (chordCharacter == "m")
+            {
+                chordCharacter = "";
+                chord.TransposeBySemitones(+3);
+            }
+        }
     }
 }

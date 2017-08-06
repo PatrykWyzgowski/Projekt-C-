@@ -17,7 +17,7 @@ namespace ChordsTransposer.Controllers
         
             ChordList model = new ChordList("");
             
-            return View(model.userChords);
+            return View();
         }
 
         [HttpPost]
