@@ -4,30 +4,31 @@ namespace ChordsTransposer.Models
 {
     public class Chord
     {
-        private Note chordName { get; set; }
-        private int chordCharacter { get; set; }
+        internal Note chordName { get; set; }
+        internal string chordCharacter { get; set; }
         //private PossibleNotesInitialiser initialiser = new PossibleNotesInitialiser();
 
         public Chord(Note chordName)
-    {
+        {
             this.chordName = chordName;
-            chordCharacter = 0;
-    }
-    
-    public Chord(Note chordName,int chordCharacter)
+            chordCharacter = "";
+        }
+
+        public Chord(Note chordName, string chordCharacter)
         {
             this.chordName = chordName;
             this.chordCharacter = chordCharacter;
         }
 
-    public void TransposeBySemitones(int semitones)
+        void TransposeBySemitones(int semitones)
         {
             for (int i = 0; i < 12; i++)
             {
-                if (PossibleNotesInitialiser.possibleNotes[i] ==chordName)
+                int temp = (i + semitones) % 12;
+
+                if (Note.possibleNoteNames[i] == chordName.noteName)
                 {
-                    i+=semitones;
-                    chordName = PossibleNotesInitialiser.possibleNotes[i];
+                    chordName.noteName = Note.possibleNoteNames[temp];
                     break;
                 }
                 else

@@ -7,9 +7,9 @@ namespace ChordsTransposer.Models
     {
         public string userChords = "";
         public List<string> stringsInserted = new List<string>();
-        public List<string> chordsNamesInserted = new List<string>();
+        public List<Note> chordsNamesInserted = new List<Note>();
         public List<string> chordsCharactersInserted = new List<string>();
-        public List<string> chordsInserted = new List<string>();
+        public List<Chord> chordsInserted = new List<Chord>();
 
         public ChordList(string userChords)
         {
@@ -20,7 +20,7 @@ namespace ChordsTransposer.Models
 
             foreach (string chordNameString in userChords.Split(new char[] { ' ', 'm' }, StringSplitOptions.RemoveEmptyEntries))
             {
-                chordsNamesInserted.Add(chordNameString);
+                chordsNamesInserted.Add(new Note(chordNameString));
             }
 
             for (int i = 0; i < stringsInserted.Count; i++)
@@ -37,8 +37,9 @@ namespace ChordsTransposer.Models
 
             for (int i = 0; i < chordsNamesInserted.Count; i++)
             {
-                chordsInserted.Insert(i, chordsNamesInserted[i] + chordsCharactersInserted[i]);
+                chordsInserted.Insert(i, new Chord(chordsNamesInserted[i], chordsCharactersInserted[i]));
             }
         }
     }
 }
+
