@@ -1,34 +1,36 @@
 ﻿using ChordsTransposer.Models;
 using System.Collections.Generic;
+using System;
 namespace ChordsTransposer.Models
 {
-    public class Chord
+    internal class Chord : Note
     {
-        internal Note chordName { get; set; }
-        internal string chordCharacter { get; set; }
-        //private PossibleNotesInitialiser initialiser = new PossibleNotesInitialiser();
+        private string chordCharacter;
 
-        public Chord(Note chordName)
+        public string ChordCharacter
         {
-            this.chordName = chordName;
+            get { return chordCharacter; }
+        }
+
+
+        public Chord(string chordName) : base(chordName)
+        {
             chordCharacter = "";
         }
 
-        public Chord(Note chordName, string chordCharacter)
+        public Chord(string chordName, string chordCharacter) : base(chordName)
         {
-            this.chordName = chordName;
             this.chordCharacter = chordCharacter;
         }
 
-        void TransposeBySemitones(int semitones)
+        public void TransposeBySemitones(int semitones)
         {
             for (int i = 0; i < 12; i++)
             {
-                int temp = (i + semitones) % 12;
-
-                if (Note.possibleNoteNames[i] == chordName.noteName)
+                if (String.Equals(PossibleNoteNames[i], NoteName, StringComparison.OrdinalIgnoreCase))
                 {
-                    chordName.noteName = Note.possibleNoteNames[temp];
+                    int temp = (i + (semitones >= 0 ? semitones : (semitones + 12))) % 12;
+                    NoteName = PossibleNoteNames[temp];
                     break;
                 }
                 else

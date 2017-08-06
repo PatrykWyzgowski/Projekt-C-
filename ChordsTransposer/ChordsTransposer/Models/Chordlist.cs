@@ -3,13 +3,18 @@ using System.Collections.Generic;
 
 namespace ChordsTransposer.Models
 {
-    public class ChordList
+    internal class ChordList
     {
-        public string userChords = "";
-        public List<string> stringsInserted = new List<string>();
-        public List<Note> chordsNamesInserted = new List<Note>();
-        public List<string> chordsCharactersInserted = new List<string>();
-        public List<Chord> chordsInserted = new List<Chord>();
+        private string userChords = "";
+        private List<string> stringsInserted = new List<string>();
+        private List<string> chordsNamesInserted = new List<string>();
+        private List<string> chordsCharactersInserted = new List<string>();
+        private List<Chord> chordsInserted = new List<Chord>();
+
+        public List<Chord> ChordsInserted
+        {
+            get { return chordsInserted; }
+        }
 
         public ChordList(string userChords)
         {
@@ -20,7 +25,7 @@ namespace ChordsTransposer.Models
 
             foreach (string chordNameString in userChords.Split(new char[] { ' ', 'm' }, StringSplitOptions.RemoveEmptyEntries))
             {
-                chordsNamesInserted.Add(new Note(chordNameString));
+                chordsNamesInserted.Add(chordNameString);
             }
 
             for (int i = 0; i < stringsInserted.Count; i++)

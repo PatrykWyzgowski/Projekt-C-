@@ -5,11 +5,22 @@ using System.Web;
 
 namespace ChordsTransposer.Models
 {
-    public class Note
+    internal class Note
     {
-        internal static readonly List<string> possibleNoteNames = new List<string>
+        private static readonly List<string> possibleNoteNames = new List<string>
         { "H", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "B" };
-        internal string noteName;
+        private string noteName;
+
+        public List<string> PossibleNoteNames
+        {
+            get { return possibleNoteNames; }
+        }
+
+        public string NoteName
+        {
+            get { return noteName; }
+            set { noteName = value; }
+        }
 
         public Note(string noteName)
         {
