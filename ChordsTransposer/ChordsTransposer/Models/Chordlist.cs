@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ChordsTransposer.Models
 {
-    internal class ChordList
+    public class ChordList
     {
         private string userChords = "";
         private List<string> stringsInserted = new List<string>();
@@ -11,9 +11,15 @@ namespace ChordsTransposer.Models
         private List<string> chordsCharactersInserted = new List<string>();
         private List<Chord> chordsInserted = new List<Chord>();
 
-        public List<Chord> ChordsInserted
+        internal List<Chord> ChordsInserted
         {
             get { return chordsInserted; }
+        }
+
+        public string UserChords
+        {
+            get { return userChords; }
+            set { this.userChords = UserChords; }
         }
 
         public ChordList(string userChords)

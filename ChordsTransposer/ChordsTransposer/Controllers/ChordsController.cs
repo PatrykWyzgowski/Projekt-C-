@@ -5,26 +5,31 @@ namespace ChordsTransposer.Controllers
 {
     public class ChordsController : Controller
     {
+        ChordList chordlist = new ChordList("C A G E D");
               // GET: Chords
-        public ActionResult Index()
+        public ActionResult Index(string userString)
         {
-                     
-            return View();
-        }
-        
-        public ActionResult Test()
-        { 
-        
-            ChordList model = new ChordList("");
-            
+            //ViewBag.userString = userString;
             return View();
         }
 
+        //[HttpGet]
+        //public ActionResult Test()
+        //{            
+        //    return View();
+        //}
+
         [HttpPost]
-        public ActionResult TestResult(ChordList model)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(string userchords)
         {
-            //string test = model.userChords;
-            return Content(model.userChords);
+            if (ModelState.IsValid)
+            {
+                chordlist.UserChords = userchords;
+                return RedirectToAction("Index");
+            }
+                
+            return View(chordlist);
         }
     }
 }
