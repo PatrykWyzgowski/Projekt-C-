@@ -15,8 +15,8 @@ namespace ChordsTransposer
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{userchords}",
+                defaults: new { controller = "Chords", action = "Index", userchords = UrlParameter.Optional }
             );
         }
     }

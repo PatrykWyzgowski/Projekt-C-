@@ -1,35 +1,29 @@
 ﻿using ChordsTransposer.Models;
 using System.Web.Mvc;
+using System;
 
 namespace ChordsTransposer.Controllers
 {
     public class ChordsController : Controller
     {
-        ChordList chordlist = new ChordList("C A G E D");
               // GET: Chords
-        public ActionResult Index(string userString)
+        public ActionResult Index()
         {
-            //ViewBag.userString = userString;
             return View();
         }
 
-        //[HttpGet]
-        //public ActionResult Test()
-        //{            
-        //    return View();
-        //}
+        [HttpGet]
+        public ActionResult Insert()
+        {
+            return View(new ChordList("C A G E D"));
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string userchords)
+        public ActionResult Insert(ChordList model)
         {
-            if (ModelState.IsValid)
-            {
-                chordlist.UserChords = userchords;
-                return RedirectToAction("Index");
-            }
-                
-            return View(chordlist);
+            ViewBag.ModelContains = model.UserChords;
+            return Content(model.UserChords);
         }
     }
 }
